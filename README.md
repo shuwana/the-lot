@@ -26,4 +26,5 @@ This project is all about building a super sleek Parking Garage Platform. Hereâ€
 ### Contributors
 Meet our Lot Logicians!
 - **[Shuwana](https://github.com/shuwana)**
+- **[Marcin](https://github.com/marszos)**
 
