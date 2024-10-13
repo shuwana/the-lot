@@ -4,8 +4,8 @@ Ever wondered where your car disappeared to? Or how many free parking spots are 
 
 ### 🛠️ Tech Stack
 
-Backend: Spring Boot
-Database: PostgreSQL
+Backend: Spring Boot <br />
+Database: PostgreSQL <br />
 Frontend: Angular
 
 
