@@ -1,0 +1,21 @@
+
+spring:
+  application:
+    name: parkinglot
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        boot:
+          allow_jdbc_metadata_access: false
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/parkinglot
+    username: postgres
+    password: postgres
+    hikari:
+      poolName: Hikari
+      auto-commit: true
+server:
+  port: 8080
