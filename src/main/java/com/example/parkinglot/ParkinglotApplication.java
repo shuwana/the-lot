@@ -1,7 +1,7 @@
 package com.example.parkinglot;
 import com.example.parkinglot.enums.Role;
 
-import com.example.parkinglot.entity.Users;
+import com.example.parkinglot.entity.User;
 import com.example.parkinglot.repo.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,7 +21,7 @@ public class ParkinglotApplication {
     public CommandLineRunner dataLoader(final UserRepository repo) {
         return new CommandLineRunner() {
             public void run(String... args) throws Exception {
-                repo.save(new Users("marcin", "szoska", "marszos", "1234455", "mszoska@gmail.com", Role.USER));
+                repo.save(new User("marcin", "szoska", "marszos", "1234455", "mszoska@gmail.com", Role.USER));
             }
         };
     }
