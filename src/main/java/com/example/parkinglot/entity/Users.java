@@ -1,8 +1,10 @@
 package com.example.parkinglot.entity;
 
+
 import java.util.Arrays;
 import java.util.Collection;
 import com.example.parkinglot.enums.Role;
+import com.example.parkinglot.entity.Cars.
 import jakarta.persistence.*;
 
 
@@ -40,6 +42,9 @@ public class Users implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private final Role role;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Car> cars;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
