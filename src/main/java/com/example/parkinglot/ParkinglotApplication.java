@@ -1,4 +1,5 @@
 package com.example.parkinglot;
+import com.example.parkinglot.enums.Role;
 
 import com.example.parkinglot.entity.Users;
 import com.example.parkinglot.repo.UserRepository;
@@ -20,7 +21,7 @@ public class ParkinglotApplication {
     public CommandLineRunner dataLoader(final UserRepository repo) {
         return new CommandLineRunner() {
             public void run(String... args) throws Exception {
-                repo.save(new Users("marcin", "szoska", "marszos", "1234455", "mszoska@gmail.com", "User"));
+                repo.save(new Users("marcin", "szoska", "marszos", "1234455", "mszoska@gmail.com", Role.USER));
             }
         };
     }

@@ -1,18 +1,21 @@
 package com.example.parkinglot.entity;
 
+import java.util.Arrays;
 import java.util.Collection;
+import com.example.parkinglot.enums.Role;
+import jakarta.persistence.*;
 
+
+import jakarta.validation.constraints.Email;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Data
@@ -21,20 +24,28 @@ import lombok.RequiredArgsConstructor;
 public class Users implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
+    //need validation
     private final String firstName;
     private final String lastName;
     private final String username;
     private final String password;
+
+
+    @NotBlank(message = "Email is mandatory")
+    @Email(message = "Email should be valid")
     private final String email;
-    private final String role;
+
+    @Enumerated(EnumType.STRING)
+    private final Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAuthorities'");
+        //this is just for now
+        return Arrays.asList(new SimpleGrantedAuthority("USER"));
+
     }
 
     @Override
