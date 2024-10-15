@@ -1,4 +1,4 @@
 package com.example.parkinglot.entity;
 
-public class Cars {
+public class Car {
 }
