@@ -3,8 +3,10 @@ package com.example.parkinglot.entity;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+
 import com.example.parkinglot.enums.Role;
-import com.example.parkinglot.entity.Cars.
+import com.example.parkinglot.entity.Car;
 import jakarta.persistence.*;
 
 
@@ -23,6 +25,7 @@ import jakarta.validation.constraints.NotBlank;
 @Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @RequiredArgsConstructor
+@Table(name = "users")
 public class User implements UserDetails {
 
     @Id
