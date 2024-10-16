@@ -1,14 +1,17 @@
 package com.example.parkinglot;
+import com.example.parkinglot.entity.Reservation;
 import com.example.parkinglot.enums.Role;
 import com.example.parkinglot.entity.Car;
 import com.example.parkinglot.entity.User;
 import com.example.parkinglot.repo.CarRepository;
+import com.example.parkinglot.repo.ReservationRepository;
 import com.example.parkinglot.repo.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 
 @SpringBootApplication
@@ -21,7 +24,7 @@ public class ParkinglotApplication {
 	}
 
     @Bean
-    public CommandLineRunner dataLoader(final UserRepository repo, final CarRepository carRepository) {
+    public CommandLineRunner dataLoader(final UserRepository repo, final CarRepository carRepository, final ReservationRepository reservationRepository) {
         return new CommandLineRunner() {
             public void run(String... args) throws Exception {
 
@@ -43,8 +46,19 @@ public class ParkinglotApplication {
                 car2.setRegistration("XYZ789");
                 car2.setUser(user);
 
+                Reservation reservation1 = new Reservation();
+                reservation1.setStartTime(LocalDateTime.of(2024, 10, 15, 10, 0));  // October 15, 2024, 10:00 AM
+                reservation1.setEndTime(LocalDateTime.of(2024, 10, 15, 12, 0));    // October 15, 2024, 12:00 PM
+                reservation1.setSpotId(1L);                                       // Example spot ID
+                reservation1.setPaymentMethodId(101L);                            // Example payment method ID
+                reservation1.setPrice(25.0);                                      // Example price
+                reservation1.setUser(user);
+
+
+
                 repo.save(user);
                 carRepository.saveAll(Arrays.asList(car1, car2));
+                reservationRepository.save(reservation1);
             }
         };
     }
