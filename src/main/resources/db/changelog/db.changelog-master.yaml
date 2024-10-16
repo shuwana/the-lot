@@ -1,0 +1,184 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1729099703466-1
+      author: user
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: sequence_generator
+            startValue: 1
+  - changeSet:
+      id: 1729099703466-2
+      author: user
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_authorities
+                  name: name
+                  type: VARCHAR(50)
+            tableName: authorities
+  - changeSet:
+      id: 1729099703466-3
+      author: user
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user_authority
+                  name: authority_name
+                  type: VARCHAR(50)
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user_authority
+                  name: user_id
+                  type: BIGINT
+            tableName: user_authority
+  - changeSet:
+      id: 1729099703466-4
+      author: user
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_users
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_by
+                  type: VARCHAR(50)
+              - column:
+                  name: created_date
+                  type: DATETIME
+              - column:
+                  name: last_modified_by
+                  type: VARCHAR(50)
+              - column:
+                  name: last_modified_date
+                  type: DATETIME
+              - column:
+                  constraints:
+                    nullable: false
+                  name: login
+                  type: VARCHAR(50)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: password_hash
+                  type: VARCHAR(60)
+              - column:
+                  name: first_name
+                  type: VARCHAR(50)
+              - column:
+                  name: last_name
+                  type: VARCHAR(50)
+              - column:
+                  name: email
+                  type: VARCHAR(254)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: activated
+                  type: BOOLEAN
+              - column:
+                  name: image_url
+                  type: VARCHAR(256)
+              - column:
+                  name: activation_key
+                  type: VARCHAR(20)
+              - column:
+                  name: reset_key
+                  type: VARCHAR(20)
+              - column:
+                  name: reset_date
+                  type: DATETIME
+            tableName: users
+  - changeSet:
+      id: 1729099703466-5
+      author: user
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: email
+            constraintName: uc_users_email
+            tableName: users
+  - changeSet:
+      id: 1729099703466-6
+      author: user
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: login
+            constraintName: uc_users_login
+            tableName: users
+  - changeSet:
+      id: 1729099703466-7
+      author: user
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: authority_name
+            baseTableName: user_authority
+            constraintName: fk_useaut_on_authority
+            referencedColumnNames: name
+            referencedTableName: authorities
+  - changeSet:
+      id: 1729099703466-8
+      author: user
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: user_authority
+            constraintName: fk_useaut_on_user
+            referencedColumnNames: id
+            referencedTableName: users
+
+  - changeSet:
+      id: 1729099703466-9
+      author: user
+      changes:
+        - loadData:
+            file: db/changelog/data/authority.csv
+            separator: ;
+            tableName: authorities
+            usePreparedStatements: true
+
+  - changeSet:
+      id: 1729099703466-10
+      author: user
+      changes:
+        - loadData:
+            file: db/changelog/data/user.csv
+            separator: ;
+            tableName: users
+            usePreparedStatements: true
+
+  - changeSet:
+      id: 1729099703466-11
+      author: user
+      changes:
+        - loadData:
+            file: db/changelog/data/user_authority.csv
+            separator: ;
+            tableName: user_authority
+            usePreparedStatements: true
+
+

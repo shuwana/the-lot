@@ -1,0 +1,43 @@
+
+spring:
+  liquibase:
+    contexts: test
+  jackson:
+    serialization:
+      write-durations-as-timestamps: false
+  mail:
+    host: localhost
+  main:
+    allow-bean-definition-overriding: true
+  messages:
+    basename: i18n/messages
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          authority-prefix: ''
+          authorities-claim-name: auth
+  thymeleaf:
+    mode: HTML
+
+server:
+  port: 10344
+  address: localhost
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+application:
+  mail:
+    from: test@localhost.com
+    base-url: http://127.0.0.1:8080
+  security:
+    authentication:
+      jwt:
+        # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
+        base64-secret: YTVjNzIwZjJiYzQ3MDBhYzc3MjY2OGFmOGE2MjkwN2U4NDNlMmFmOWY2YmI2YWNkYWZkZjY0OWFhMjdkMzAyZTVjNDFiOWVjMzZjYmQ3YWNiNDc5OWI5Nzk1Nzc3MDQwMjgyYWI3ZDc4NjFlZjg4OGNhYzQyNjZkMzIxMzI2NzA=
+        # Token is valid 24 hours
+        token-validity-in-seconds: 86400
+        token-validity-in-seconds-for-remember-me: 86400
