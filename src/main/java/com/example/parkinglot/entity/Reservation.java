@@ -28,5 +28,9 @@ public class Reservation {
     @JoinColumn(name = "payment_Id")
     private PaymentMethod paymentMethod;
 
+    @ManyToOne
+    @JoinColumn(name = "spotNum")
+    private Spot spot;
+
 
 }

@@ -63,14 +63,21 @@ public class ParkinglotApplication {
                 reservation1.setUser(user);
 
 
-                Price price = new Price();
-                price.setPrice(20.0);
+                Price price1 = new Price();
+                price1.setDuration(1);
+                price1.setPrice(2.0);
+
+                Price price2 = new Price();
+                price2.setDuration(2);
+                price2.setPrice(4.0);
+
+
 
                 repo.save(user);
                 carRepository.saveAll(Arrays.asList(car1, car2));
                 paymentMethodRepository.save(paymentMethod);
                 reservationRepository.save(reservation1);
-                priceRepository.save(price);
+                priceRepository.saveAll(Arrays.asList(price1, price2));
             }
         };
     }
