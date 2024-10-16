@@ -1,0 +1,35 @@
+/* 
+.sidebar {
+ 
+    
+    width: 20%;
+    background-color: #f1f1f1;
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+  
+}
+
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.sidebar a.active {
+    background-color: #04aa6d;
+    color: #fff;
+} */
+
+.sidebar {
+    position: fixed; /* Fixed position to stay on the left */
+    top: 0;
+    left: 0;
+    width: 20vw; /* 20% of the viewport width */
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Allows scrolling if content exceeds height */
+}
