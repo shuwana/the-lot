@@ -17,4 +17,8 @@ public class Spot {
 
     @OneToMany(mappedBy = "spot", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reservation> reservations;
+
+    @ManyToOne
+    @JoinColumn(name = "floorNum")
+    private Floor floor;
 }

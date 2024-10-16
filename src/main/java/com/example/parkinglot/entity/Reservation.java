@@ -33,4 +33,6 @@ public class Reservation {
     private Spot spot;
 
 
+
+
 }

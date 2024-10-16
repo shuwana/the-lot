@@ -21,7 +21,8 @@ public class ParkinglotApplication {
 	}
 
     @Bean
-    public CommandLineRunner dataLoader(final UserRepository repo, final CarRepository carRepository, final ReservationRepository reservationRepository, final PaymentMethodRepository paymentMethodRepository, final PriceRepository priceRepository) {
+    public CommandLineRunner dataLoader(final UserRepository repo, final CarRepository carRepository, final ReservationRepository reservationRepository,
+                                        final PaymentMethodRepository paymentMethodRepository, final PriceRepository priceRepository, final SpotReposiotry spotReposiotry, final  FloorRepository floorRepository) {
         return new CommandLineRunner() {
             public void run(String... args) throws Exception {
 
@@ -54,13 +55,7 @@ public class ParkinglotApplication {
                 paymentMethod.setDeliveryZip("00-001");
 
 
-                Reservation reservation1 = new Reservation();
-                reservation1.setStartTime(LocalDateTime.of(2024, 10, 15, 10, 0));  // October 15, 2024, 10:00 AM
-                reservation1.setEndTime(LocalDateTime.of(2024, 10, 15, 12, 0));    // October 15, 2024, 12:00 PM
-                reservation1.setSpotId(1L);                                       // Example spot ID
-                reservation1.setPaymentMethodId(101L);                            // Example payment method ID
-                reservation1.setPrice(25.0);                                      // Example price
-                reservation1.setUser(user);
+
 
 
                 Price price1 = new Price();
@@ -71,13 +66,46 @@ public class ParkinglotApplication {
                 price2.setDuration(2);
                 price2.setPrice(4.0);
 
+                Floor floor1 = new Floor();
+                floor1.setName(1);
+
+
+
+
+                Spot spot1 = new Spot();
+                spot1.setFloor(floor1);
+                spot1.setName("A1");
+
+                Spot spot2 = new Spot();
+                spot2.setFloor(floor1);
+                spot2.setName("B1");
+
+
+
+
+
+
+                Reservation reservation1 = new Reservation();
+                reservation1.setStartTime(LocalDateTime.of(2024, 10, 15, 10, 0));  // October 15, 2024, 10:00 AM
+                reservation1.setEndTime(LocalDateTime.of(2024, 10, 15, 12, 0));    // October 15, 2024, 12:00 PM
+                reservation1.setSpotId(1L);                                       // Example spot ID
+                reservation1.setPaymentMethodId(101L);                            // Example payment method ID
+                reservation1.setPrice(25.0);                                      // Example price
+                reservation1.setUser(user);
+
+
 
 
                 repo.save(user);
                 carRepository.saveAll(Arrays.asList(car1, car2));
                 paymentMethodRepository.save(paymentMethod);
+                floorRepository.save(floor1);
+                spotReposiotry.saveAll(Arrays.asList(spot1, spot2));
                 reservationRepository.save(reservation1);
                 priceRepository.saveAll(Arrays.asList(price1, price2));
+
+
+
             }
         };
     }
