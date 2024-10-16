@@ -21,8 +21,12 @@ public class Reservation {
     private double price;
 
     @ManyToOne
-    @JoinColumn(name = "user_id") // Foreign key column in Car table
+    @JoinColumn(name = "user_id")
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "paymentMethod_Id")
+    private PaymentMethod paymentMethod;
 
 
 }

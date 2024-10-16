@@ -21,12 +21,16 @@ public class PaymentMethod {
     @Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([1-9][0-9])$",
             message="Must be formatted MM/YY")
     private LocalDate expirationDate;
+
     @Digits(integer=3, fraction=0, message="Invalid CVV")
     private int ccv;
-    @CreditCardNumber(message="Not a valid credit card number")
+
+
+    //@CreditCardNumber(message="Not a valid credit card number")
     private int card_number;
-    private final String firstName;
-    private final String lastName;
+
+//    private final String firstName;
+//    private final String lastName;
     @NotBlank(message="Street is required")
     private String deliveryStreet;
 
@@ -39,6 +43,6 @@ public class PaymentMethod {
     @NotBlank(message="Zip code is required")
     private String deliveryZip;
 
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Reservation> reservations;
+     @OneToMany(mappedBy = "paymentMethod", cascade = CascadeType.ALL, orphanRemoval = true)
+     private List<Reservation> reservations;
 }

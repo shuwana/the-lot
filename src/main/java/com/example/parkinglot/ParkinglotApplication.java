@@ -1,9 +1,11 @@
 package com.example.parkinglot;
+import com.example.parkinglot.entity.PaymentMethod;
 import com.example.parkinglot.entity.Reservation;
 import com.example.parkinglot.enums.Role;
 import com.example.parkinglot.entity.Car;
 import com.example.parkinglot.entity.User;
 import com.example.parkinglot.repo.CarRepository;
+import com.example.parkinglot.repo.PaymentMethodRepository;
 import com.example.parkinglot.repo.ReservationRepository;
 import com.example.parkinglot.repo.UserRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -11,6 +13,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
@@ -24,7 +27,7 @@ public class ParkinglotApplication {
 	}
 
     @Bean
-    public CommandLineRunner dataLoader(final UserRepository repo, final CarRepository carRepository, final ReservationRepository reservationRepository) {
+    public CommandLineRunner dataLoader(final UserRepository repo, final CarRepository carRepository, final ReservationRepository reservationRepository, final PaymentMethodRepository paymentMethodRepository) {
         return new CommandLineRunner() {
             public void run(String... args) throws Exception {
 
@@ -46,6 +49,20 @@ public class ParkinglotApplication {
                 car2.setRegistration("XYZ789");
                 car2.setUser(user);
 
+                PaymentMethod paymentMethod = new PaymentMethod();
+                paymentMethod.setExpirationDate(LocalDate.of(2026, 12, 31));  // Expiration date: December 2026
+                paymentMethod.setCcv(123);                                   // CVV
+                paymentMethod.setCard_number(1234567812345678);              // Fake credit card number
+//                paymentMethod.setFirstName("Marcin");
+//                paymentMethod.setLastName("Szoska");
+                paymentMethod.setDeliveryStreet("123 Main St");
+                paymentMethod.setDeliveryCity("Warsaw");
+                paymentMethod.setDeliveryState("Mazowieckie");
+                paymentMethod.setDeliveryZip("00-001");
+
+
+
+
                 Reservation reservation1 = new Reservation();
                 reservation1.setStartTime(LocalDateTime.of(2024, 10, 15, 10, 0));  // October 15, 2024, 10:00 AM
                 reservation1.setEndTime(LocalDateTime.of(2024, 10, 15, 12, 0));    // October 15, 2024, 12:00 PM
@@ -58,6 +75,7 @@ public class ParkinglotApplication {
 
                 repo.save(user);
                 carRepository.saveAll(Arrays.asList(car1, car2));
+                paymentMethodRepository.save(paymentMethod);
                 reservationRepository.save(reservation1);
             }
         };
