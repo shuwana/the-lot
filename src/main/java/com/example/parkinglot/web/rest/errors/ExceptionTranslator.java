@@ -43,7 +43,7 @@ public class ExceptionTranslator extends ResponseEntityExceptionHandler {
     private static final String PATH_KEY = "path";
     private static final boolean CASUAL_CHAIN_ENABLED = false;
 
-    @Value("${jhipster.clientApp.name}")
+    @Value("${spring.application.name}")
     private String applicationName;
 
     private final Environment env;
@@ -67,7 +67,7 @@ public class ExceptionTranslator extends ResponseEntityExceptionHandler {
         HttpStatusCode statusCode,
         WebRequest request
     ) {
-        body = body == null ? wrapAndCustomizeProblem((Throwable) ex, (NativeWebRequest) request) : body;
+        body = body == null ? wrapAndCustomizeProblem(ex, (NativeWebRequest) request) : body;
         return super.handleExceptionInternal(ex, body, headers, statusCode, request);
     }
 

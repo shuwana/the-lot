@@ -3,10 +3,6 @@ package com.example.parkinglot.config;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 @ConfigurationProperties(prefix = "application", ignoreUnknownFields = false)
 public class ApplicationProperties {
 
@@ -20,62 +16,6 @@ public class ApplicationProperties {
 
     public Security getSecurity() {
         return security;
-    }
-
-    public static class Http {
-
-        private final Cache cache = new Cache();
-
-        public Cache getCache() {
-            return cache;
-        }
-
-        public static class Cache {
-
-            private int timeToLiveInDays = ApplicationDefaults.Http.Cache.timeToLiveInDays;
-
-            public int getTimeToLiveInDays() {
-                return timeToLiveInDays;
-            }
-
-            public void setTimeToLiveInDays(int timeToLiveInDays) {
-                this.timeToLiveInDays = timeToLiveInDays;
-            }
-        }
-    }
-
-    public static class Database {
-
-        private final Couchbase couchbase = new Couchbase();
-
-        public Couchbase getCouchbase() {
-            return couchbase;
-        }
-
-        public static class Couchbase {
-
-            private String bucketName;
-
-            private String scopeName;
-
-            public String getBucketName() {
-                return bucketName;
-            }
-
-            public Couchbase setBucketName(String bucketName) {
-                this.bucketName = bucketName;
-                return this;
-            }
-
-            public String getScopeName() {
-                return scopeName;
-            }
-
-            public Couchbase setScopeName(String scopeName) {
-                this.scopeName = scopeName;
-                return this;
-            }
-        }
     }
 
     public static class Mail {
@@ -115,17 +55,9 @@ public class ApplicationProperties {
 
         private String contentSecurityPolicy = ApplicationDefaults.Security.contentSecurityPolicy;
 
-        private final ClientAuthorization clientAuthorization = new ClientAuthorization();
-
         private final Authentication authentication = new Authentication();
 
         private final RememberMe rememberMe = new RememberMe();
-
-        private final OAuth2 oauth2 = new OAuth2();
-
-        public ClientAuthorization getClientAuthorization() {
-            return clientAuthorization;
-        }
 
         public Authentication getAuthentication() {
             return authentication;
@@ -135,59 +67,12 @@ public class ApplicationProperties {
             return rememberMe;
         }
 
-        public OAuth2 getOauth2() {
-            return oauth2;
-        }
-
         public String getContentSecurityPolicy() {
             return contentSecurityPolicy;
         }
 
         public void setContentSecurityPolicy(String contentSecurityPolicy) {
             this.contentSecurityPolicy = contentSecurityPolicy;
-        }
-
-        public static class ClientAuthorization {
-
-            private String accessTokenUri = ApplicationDefaults.Security.ClientAuthorization.accessTokenUri;
-
-            private String tokenServiceId = ApplicationDefaults.Security.ClientAuthorization.tokenServiceId;
-
-            private String clientId = ApplicationDefaults.Security.ClientAuthorization.clientId;
-
-            private String clientSecret = ApplicationDefaults.Security.ClientAuthorization.clientSecret;
-
-            public String getAccessTokenUri() {
-                return accessTokenUri;
-            }
-
-            public void setAccessTokenUri(String accessTokenUri) {
-                this.accessTokenUri = accessTokenUri;
-            }
-
-            public String getTokenServiceId() {
-                return tokenServiceId;
-            }
-
-            public void setTokenServiceId(String tokenServiceId) {
-                this.tokenServiceId = tokenServiceId;
-            }
-
-            public String getClientId() {
-                return clientId;
-            }
-
-            public void setClientId(String clientId) {
-                this.clientId = clientId;
-            }
-
-            public String getClientSecret() {
-                return clientSecret;
-            }
-
-            public void setClientSecret(String clientSecret) {
-                this.clientSecret = clientSecret;
-            }
         }
 
         public static class Authentication {
@@ -254,19 +139,6 @@ public class ApplicationProperties {
 
             public void setKey(String key) {
                 this.key = key;
-            }
-        }
-
-        public static class OAuth2 {
-
-            private List<String> audience = new ArrayList<>();
-
-            public List<String> getAudience() {
-                return Collections.unmodifiableList(audience);
-            }
-
-            public void setAudience(@NotNull List<String> audience) {
-                this.audience.addAll(audience);
             }
         }
     }

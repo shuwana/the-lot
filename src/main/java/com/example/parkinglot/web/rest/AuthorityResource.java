@@ -31,7 +31,7 @@ public class AuthorityResource {
 
     private static final String ENTITY_NAME = "adminAuthority";
 
-    @Value("${jhipster.clientApp.name}")
+    @Value("${spring.application.name}")
     private String applicationName;
 
     private final AuthorityRepository authorityRepository;
