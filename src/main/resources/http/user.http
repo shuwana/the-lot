@@ -13,4 +13,59 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/api/activate?key=ZPdqU7SPpWWB3YtP7CsR
+GET http://localhost:8080/api/activate?key=C0ssJHPWFBDBzt1Upn8d
+
+###
+POST http://localhost:8080/api/authenticate
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "1234"
+}
+
+###
+POST http://localhost:8080/api/account/reset-password/init
+Content-Type: text/plain
+Accept: application/json
+
+"powerm4f12@gmail.com"
+
+###
+POST http://localhost:8080/api/account/reset-password/finish
+Content-Type: application/json
+Accept: application/json
+
+{
+  "key": "P02cb4Qbb0hNhUQsN7ZV",
+  "newPassword": "ery453wujdfg344"
+}
+
+###
+GET http://localhost:8080/api/users
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MSIsImV4cCI6MTcyNzg4ODUwOSwiYXV0aCI6IlJPTEVfVVNFUiIsImlhdCI6MTcyNzgwMjEwOX0.Z-bcETH4zrdwLjFXtLp3lsF0edRQ68gq9GBKnBBCuhqR5u_SbZdU3KnmbX4xlbUrm_Rdu8PlJ1QJIORXlhd0rw
+
+###
+GET http://localhost:8080/api/users?login=test
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtdXoiLCJleHAiOjE3Mjc5ODA3MjgsImF1dGgiOiJST0xFX1VTRVIiLCJpYXQiOjE3Mjc4OTQzMjh9.wLxEEjXYC6q4EhaxJFIyWaVdmdDIXzu71eUzOV6OcVJ0CfHPSdxpLvKyzQqh3TVES-ukCtYCyPdHQzXE1Zc60w
+
+###
+POST http://localhost:8080/api/account
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MTExIiwiZXhwIjoxNzI3Mjc1NDQ3LCJhdXRoIjoiIiwiaWF0IjoxNzI3MTg5MDQ3fQ._838T0cRAm1ee4woaCndJKCybfrM5eQVj2Iy6eja6N47i7dWpc9xYmzRusCo3Lh19Rgytp7nMNu_n89IJwB7BQ
+
+{
+  "id": "27e31619-3bd9-4f50-81ad-b3e5f62cbfe4",
+  "login": "test",
+  "firstName": "Ivan",
+  "lastName": "Petrov",
+  "email": "powerm4f12@gmail.com",
+  "password": "12345"
+}
+
+###
+###
+DELETE http://localhost:8080/api/admin/users/test
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnaG9zdCIsImV4cCI6MTcyNzI3NjI0MywiYXV0aCI6IlJPTEVfQURNSU4iLCJpYXQiOjE3MjcxODk4NDN9.uuonEhzg7c6Xnc5VoiH_XjFHU53NuzWeP5uvBYwUlC858YcZXpPsokdga47WR0vEpUhR3fe0hlzmIn5a-JDKpA
