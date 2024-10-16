@@ -10,5 +10,7 @@ public final class Constants {
 
     public static String SPRING_PROFILE_PRODUCTION = "prod";
 
+    public static final String SYSTEM = "system";
+
     private Constants() {}
 }

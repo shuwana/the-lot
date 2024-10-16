@@ -25,7 +25,7 @@ import java.util.List;
 public class PublicUserResource {
 
     private static final List<String> ALLOWED_ORDERED_PROPERTIES = Collections.unmodifiableList(
-        Arrays.asList("id", "login", "firstName", "lastName", "email", "activated", "langKey")
+        Arrays.asList("id", "login", "firstName", "lastName", "email", "activated")
     );
 
     private static final Logger LOG = LoggerFactory.getLogger(PublicUserResource.class);

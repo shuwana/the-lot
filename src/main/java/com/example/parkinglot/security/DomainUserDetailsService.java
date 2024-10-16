@@ -1,7 +1,7 @@
 package com.example.parkinglot.security;
 
-import com.example.parkinglot.domain.Authority;
-import com.example.parkinglot.domain.User;
+import com.example.parkinglot.entity.Authority;
+import com.example.parkinglot.entity.User;
 import com.example.parkinglot.repo.UserRepository;
 import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 import org.slf4j.Logger;

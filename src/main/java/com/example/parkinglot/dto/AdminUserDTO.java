@@ -1,8 +1,8 @@
 package com.example.parkinglot.dto;
 
 import com.example.parkinglot.config.Constants;
-import com.example.parkinglot.domain.Authority;
-import com.example.parkinglot.domain.User;
+import com.example.parkinglot.entity.Authority;
+import com.example.parkinglot.entity.User;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

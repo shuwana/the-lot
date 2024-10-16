@@ -1,0 +1,16 @@
+###
+POST http://localhost:8080/api/register
+Accept: application/json
+Content-Type: application/json
+
+{
+  "login": "test",
+  "password": "1234",
+  "firstName": "Ivan",
+  "lastName": "Petrov",
+  "email": "powerm4f12@gmail.com"
+
+}
+
+###
+GET http://localhost:8080/api/activate?key=ZPdqU7SPpWWB3YtP7CsR

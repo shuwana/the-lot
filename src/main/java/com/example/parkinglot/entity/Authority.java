@@ -1,4 +1,4 @@
-package com.example.parkinglot.domain;
+package com.example.parkinglot.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;

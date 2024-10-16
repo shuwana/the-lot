@@ -1,6 +1,6 @@
 package com.example.parkinglot.web.rest;
 
-import com.example.parkinglot.domain.User;
+import com.example.parkinglot.entity.User;
 import com.example.parkinglot.repo.UserRepository;
 import com.example.parkinglot.service.MailService;
 import com.example.parkinglot.security.SecurityUtils;

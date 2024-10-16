@@ -1,7 +1,7 @@
 package com.example.parkinglot.service;
 
 import com.example.parkinglot.config.ApplicationProperties;
-import com.example.parkinglot.domain.User;
+import com.example.parkinglot.entity.User;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.slf4j.Logger;

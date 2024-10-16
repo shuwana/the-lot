@@ -1,9 +1,9 @@
 package com.example.parkinglot.mapper;
 
-import com.example.parkinglot.domain.Authority;
-import com.example.parkinglot.domain.User;
+import com.example.parkinglot.entity.Authority;
 import com.example.parkinglot.dto.AdminUserDTO;
 import com.example.parkinglot.dto.UserDTO;
+import com.example.parkinglot.entity.User;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

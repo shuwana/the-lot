@@ -1,6 +1,6 @@
 package com.example.parkinglot.dto;
 
-import com.example.parkinglot.domain.User;
+import com.example.parkinglot.entity.User;
 
 import java.io.Serializable;
 import java.util.Objects;

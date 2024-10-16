@@ -1,6 +1,6 @@
 package com.example.parkinglot.repo;
 
-import com.example.parkinglot.domain.User;
+import com.example.parkinglot.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;

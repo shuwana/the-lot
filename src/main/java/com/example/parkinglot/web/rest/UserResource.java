@@ -1,7 +1,7 @@
 package com.example.parkinglot.web.rest;
 
 import com.example.parkinglot.config.Constants;
-import com.example.parkinglot.domain.User;
+import com.example.parkinglot.entity.User;
 import com.example.parkinglot.repo.UserRepository;
 import com.example.parkinglot.security.AuthoritiesConstants;
 import com.example.parkinglot.service.MailService;

@@ -1,7 +1,7 @@
 package com.example.parkinglot.service;
 
-import com.example.parkinglot.domain.Authority;
-import com.example.parkinglot.domain.User;
+import com.example.parkinglot.entity.Authority;
+import com.example.parkinglot.entity.User;
 import com.example.parkinglot.exception.EmailAlreadyUsedException;
 import com.example.parkinglot.exception.InvalidPasswordException;
 import com.example.parkinglot.exception.UsernameAlreadyUsedException;

@@ -1,6 +1,6 @@
 package com.example.parkinglot.web.rest;
 
-import com.example.parkinglot.domain.Authority;
+import com.example.parkinglot.entity.Authority;
 import com.example.parkinglot.repo.AuthorityRepository;
 import com.example.parkinglot.web.rest.errors.BadRequestAlertException;
 import jakarta.validation.Valid;
