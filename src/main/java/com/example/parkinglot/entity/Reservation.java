@@ -25,7 +25,7 @@ public class Reservation {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "paymentMethod_Id")
+    @JoinColumn(name = "payment_Id")
     private PaymentMethod paymentMethod;
 
 

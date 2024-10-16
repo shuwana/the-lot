@@ -1,13 +1,7 @@
 package com.example.parkinglot;
-import com.example.parkinglot.entity.PaymentMethod;
-import com.example.parkinglot.entity.Reservation;
+import com.example.parkinglot.entity.*;
 import com.example.parkinglot.enums.Role;
-import com.example.parkinglot.entity.Car;
-import com.example.parkinglot.entity.User;
-import com.example.parkinglot.repo.CarRepository;
-import com.example.parkinglot.repo.PaymentMethodRepository;
-import com.example.parkinglot.repo.ReservationRepository;
-import com.example.parkinglot.repo.UserRepository;
+import com.example.parkinglot.repo.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,7 +21,7 @@ public class ParkinglotApplication {
 	}
 
     @Bean
-    public CommandLineRunner dataLoader(final UserRepository repo, final CarRepository carRepository, final ReservationRepository reservationRepository, final PaymentMethodRepository paymentMethodRepository) {
+    public CommandLineRunner dataLoader(final UserRepository repo, final CarRepository carRepository, final ReservationRepository reservationRepository, final PaymentMethodRepository paymentMethodRepository, final PriceRepository priceRepository) {
         return new CommandLineRunner() {
             public void run(String... args) throws Exception {
 
@@ -50,17 +44,14 @@ public class ParkinglotApplication {
                 car2.setUser(user);
 
                 PaymentMethod paymentMethod = new PaymentMethod();
-                paymentMethod.setExpirationDate(LocalDate.of(2026, 12, 31));  // Expiration date: December 2026
+                paymentMethod.setExpirationDate("01/24");  // Expiration date: December 2026
                 paymentMethod.setCcv(123);                                   // CVV
-                paymentMethod.setCard_number(1234567812345678);              // Fake credit card number
-//                paymentMethod.setFirstName("Marcin");
-//                paymentMethod.setLastName("Szoska");
+                paymentMethod.setCard_number(123456);              // Fake credit card number
+                paymentMethod.setFullName("Marcin Szoska");
                 paymentMethod.setDeliveryStreet("123 Main St");
                 paymentMethod.setDeliveryCity("Warsaw");
                 paymentMethod.setDeliveryState("Mazowieckie");
                 paymentMethod.setDeliveryZip("00-001");
-
-
 
 
                 Reservation reservation1 = new Reservation();
@@ -72,11 +63,14 @@ public class ParkinglotApplication {
                 reservation1.setUser(user);
 
 
+                Price price = new Price();
+                price.setPrice(20.0);
 
                 repo.save(user);
                 carRepository.saveAll(Arrays.asList(car1, car2));
                 paymentMethodRepository.save(paymentMethod);
                 reservationRepository.save(reservation1);
+                priceRepository.save(price);
             }
         };
     }
