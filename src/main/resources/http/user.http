@@ -21,7 +21,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "test",
+  "username": "admin",
   "password": "1234"
 }
 
@@ -30,7 +30,10 @@ POST http://localhost:8080/api/account/reset-password/init
 Content-Type: text/plain
 Accept: application/json
 
-"powerm4f12@gmail.com"
+powerm4f12@gmail.com
+
+###
+GET http://localhost:8080/api/account/reset/finish?key=ucTj848jt00C8O5Ju99I
 
 ###
 POST http://localhost:8080/api/account/reset-password/finish
@@ -38,26 +41,26 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "key": "P02cb4Qbb0hNhUQsN7ZV",
-  "newPassword": "ery453wujdfg344"
+  "key": "ucTj848jt00C8O5Ju99I",
+  "newPassword": "1234"
 }
 
 ###
 GET http://localhost:8080/api/users
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MSIsImV4cCI6MTcyNzg4ODUwOSwiYXV0aCI6IlJPTEVfVVNFUiIsImlhdCI6MTcyNzgwMjEwOX0.Z-bcETH4zrdwLjFXtLp3lsF0edRQ68gq9GBKnBBCuhqR5u_SbZdU3KnmbX4xlbUrm_Rdu8PlJ1QJIORXlhd0rw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcyOTE5ODk3NywiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzI5MTEyNTc3fQ.MGuJqSAzkgELEtne1n8Fsa_zmGWTBEN5xfs0c2wfL5JQWc_-nNCVylq1aygUh9Ksp_sd9FZUMohzxtNcXbAxnA
 
 ###
 GET http://localhost:8080/api/users?login=test
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtdXoiLCJleHAiOjE3Mjc5ODA3MjgsImF1dGgiOiJST0xFX1VTRVIiLCJpYXQiOjE3Mjc4OTQzMjh9.wLxEEjXYC6q4EhaxJFIyWaVdmdDIXzu71eUzOV6OcVJ0CfHPSdxpLvKyzQqh3TVES-ukCtYCyPdHQzXE1Zc60w
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcyOTE5ODk3NywiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzI5MTEyNTc3fQ.MGuJqSAzkgELEtne1n8Fsa_zmGWTBEN5xfs0c2wfL5JQWc_-nNCVylq1aygUh9Ksp_sd9FZUMohzxtNcXbAxnA
 
 ###
 POST http://localhost:8080/api/account
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MTExIiwiZXhwIjoxNzI3Mjc1NDQ3LCJhdXRoIjoiIiwiaWF0IjoxNzI3MTg5MDQ3fQ._838T0cRAm1ee4woaCndJKCybfrM5eQVj2Iy6eja6N47i7dWpc9xYmzRusCo3Lh19Rgytp7nMNu_n89IJwB7BQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcyOTE5ODk3NywiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSIiwiaWF0IjoxNzI5MTEyNTc3fQ.MGuJqSAzkgELEtne1n8Fsa_zmGWTBEN5xfs0c2wfL5JQWc_-nNCVylq1aygUh9Ksp_sd9FZUMohzxtNcXbAxnA
 
 {
-  "id": "27e31619-3bd9-4f50-81ad-b3e5f62cbfe4",
+  "id": 1,
   "login": "test",
   "firstName": "Ivan",
   "lastName": "Petrov",
