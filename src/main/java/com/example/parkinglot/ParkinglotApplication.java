@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 public class ParkinglotApplication {
@@ -103,6 +104,13 @@ public class ParkinglotApplication {
                 spotReposiotry.saveAll(Arrays.asList(spot1, spot2));
                 reservationRepository.save(reservation1);
                 priceRepository.saveAll(Arrays.asList(price1, price2));
+
+               List<Car> outcome = carRepository.findByUserFirstName("Marcin");
+
+
+               for (Car c: outcome) {
+                   System.out.println(c.getModel());
+               }
 
 
 
