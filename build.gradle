@@ -38,6 +38,8 @@ dependencies {
 	implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0' // or the latest version
 	implementation 'jakarta.validation:jakarta.validation-api:3.0.0'
     implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+
 
 
 
