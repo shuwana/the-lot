@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-
+  currentPage: string = 'dashboard';
 }

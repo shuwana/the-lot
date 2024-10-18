@@ -2,17 +2,16 @@
     <div class="sidebar-top">
       <div class="image-div"></div>
       <h2>Hello There!
-        <span class="role">admin</span>
       </h2>
     </div>
     <!-- <p>This is the sidebar content.</p> -->
 
     <div class="links">
-      <a href="#" class="active">Dashboard</a>
-      <a href="#">Reservations</a>
-      <a href="#">Members</a>
-      <a href="#">Pricing</a>
-      
+      <a href="dashboard" (click)="currentPage = 'dashboard'" [ngClass]="{active: currentPage === 'dashboard'}">Dashboard</a>
+      <a href="members" (click)="currentPage = 'members'" [ngClass]="{active: currentPage === 'members'}">Members</a>
+      <a href="pricing" (click)="currentPage = 'pricing'" [ngClass]="{active: currentPage === 'pricing'}">Pricing</a>
+      <a href="reservations" (click)="currentPage = 'reservations'" [ngClass]="{active: currentPage === 'reservations'}">Reservations</a>
+  
     </div>
 
     <div class="bottom">

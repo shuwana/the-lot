@@ -1,0 +1,50 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #fff;
+    margin-left: 20vw; /* Leave space for the sidebar */
+    height: 100vh; /* Full viewport height */
+    background-color: #1c1e22;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 1px solid greenyellow; */
+    border-radius: 10px;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center;
+    align-items: center; */
+    gap: 16px;
+    /* height: 50%; */
+    /* border: 1px solid greenyellow; */
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+    text-align: left;
+    /* margin: 5px 0; Space between boxes */
+    width: 400px;
+    height: 95%;
+    border-radius: 10px;
+    background-color: #2e3033;
+    /* border: 1px solid greenyellow; */
+}
