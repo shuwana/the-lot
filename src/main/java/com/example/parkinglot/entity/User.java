@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.List;
 
 import com.example.parkinglot.enums.Role;
-import com.example.parkinglot.entity.Car;
+// import com.example.parkinglot.entity.Car;
 import jakarta.persistence.*;
 
 
