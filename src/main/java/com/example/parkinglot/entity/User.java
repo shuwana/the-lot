@@ -1,7 +1,17 @@
 package com.example.parkinglot.entity;
 
+<<<<<<< HEAD
 import com.example.parkinglot.config.Constants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+=======
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
+import com.example.parkinglot.enums.Role;
+// import com.example.parkinglot.entity.Car;
+>>>>>>> Lora's
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;

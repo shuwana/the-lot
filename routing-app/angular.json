@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "the-lot": {
+    "routing-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/the-lot",
+            "outputPath": "dist/routing-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "the-lot:build:production"
+              "buildTarget": "routing-app:build:production"
             },
             "development": {
-              "buildTarget": "the-lot:build:development"
+              "buildTarget": "routing-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -97,12 +97,5 @@
         }
       }
     }
-  },
-  "cli": {
-<<<<<<< HEAD
-    "analytics": false
-=======
-    "analytics": "ca331803-0030-4c0a-a27a-5c6dba5be316"
->>>>>>> Lora's
   }
 }
