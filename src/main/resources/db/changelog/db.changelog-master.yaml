@@ -7,7 +7,7 @@ databaseChangeLog:
         - createSequence:
             incrementBy: 50
             sequenceName: sequence_generator
-            startValue: 1
+            startValue: 1050
   - changeSet:
       id: 1729099703466-2
       author: user

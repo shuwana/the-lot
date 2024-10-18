@@ -90,6 +90,17 @@ class DomainUserDetailsServiceIT {
         userService.deleteUser(USER_THREE_LOGIN);
     }
 
+    /*
+    Greetins.
+
+    My name is Arsen Anafiiev.
+
+    I graduated from Electrical Engineering. Despite loving my field I was more passioned about software development.
+    In my home counry I had a change to start my carear
+
+
+     */
+
     @Test
     void assertThatUserCanBeFoundByLogin() {
         UserDetails userDetails = domainUserDetailsService.loadUserByUsername(USER_ONE_LOGIN);
